@@ -15,7 +15,7 @@ function Nav() {
             </div>
 
             <div className='button'>
-              <Link to={'/user'}> <button className="bg-primary text-white text-xl font-mont py-3 px-6 rounded-lg cursor-pointer">start ranting</button></Link>
+              <Link to={'dashboard/user'}> <button className="bg-primary text-white text-xl font-mont py-3 px-6 rounded-lg cursor-pointer">start ranting</button></Link>
             </div>
 
         </div>
