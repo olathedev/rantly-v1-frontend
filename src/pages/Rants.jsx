@@ -1,23 +1,48 @@
-import React from 'react'
-import { MdAccessTime } from "react-icons/md";
+import React from "react";
+import { MdAccessTime, MdShare } from "react-icons/md";
 
 function Rants() {
   return (
-    <div className='container mx-auto px-8 md:px-10 mt-8'>
-        <div className="grid grid-cols-1 md:grid-cols-4">
-            <div className='message-box border border-primary rounded-lg'>
-                <div className="header px-4 py-6 bg-[#040406] text-white flex rounded-t-lg">
-                    <h2 className="text-lg font-pop font-semibold">Rant</h2>
+    <div className="container mx-auto px-8 md:px-10 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-4">
+        <div className="message-box border-primary bg-primary bg-opacity-25 rounded-lg">
+          <div className="header px-4 py-6 bg-[#040406] text-white flex justify-between rounded-t-lg">
+            <h2 className="text-lg font-pop font-semibold">Rant</h2>
 
-                    <div className="flex w-full items-center justify-between gap-3">
-                        <div className='flex gap-2'><MdAccessTime /> <p>2 hours ago</p></div>
-                    </div>
-                </div>
-                <div className="body px-4 py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, quod? Lorem ipsum dolor sit amet.</div>
+            <div className="ml-4 py-1 px-1 bg-white rounded-full border border-primary text-primary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+                />
+              </svg>
             </div>
+          </div>
+          <div className="body px-4 py-8 text-xl font-pop text-[#040406]">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta,
+            quod? Lorem ipsum dolor sit amet.
+          </div>
+
+          <div className="footer bg-[#040406] text-white p-4 rounded-b-lg flex items-center justify-between font-pop text-md">
+            <p>Sent: 2Hours ago</p>
+
+            <div className=" py-1 px-1 text-xl bg-white rounded-full border-2 border-primary text-primary">
+              {" "}
+              <MdShare />{" "}
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Rants
+export default Rants;
