@@ -1,10 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdAccessTime, MdShare } from "react-icons/md";
+import axios from 'axios'
 
 function Rants() {
+
+  const [isPending, setIsPending] = useState(false)
+  const [messages, setMessages] = useState(null)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+
+    setIsPending(true)
+    
+    const getUser = async () => {
+      try{
+        const {data} = await axios.get(`/messages/oladev01`)
+        console.log(data)
+        setIsPending(false)
+        setMessages(data.messages)
+      }catch(error){
+        console.log(error)
+        setIsPending(false)
+        
+      }
+    }
+
+  getUser()
+  }, [])
+
+
   return (
     <div className="container mx-auto px-8 md:px-10 mt-8">
-      <div className="grid grid-cols-1 md:grid-cols-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+        {messages && messages.map(message => (
+
+        
         <div className="message-box border-primary bg-primary bg-opacity-25 rounded-lg">
           <div className="header px-4 py-6 bg-[#040406] text-white flex justify-between rounded-t-lg">
             <h2 className="text-lg font-pop font-semibold">Rant</h2>
@@ -27,8 +58,7 @@ function Rants() {
             </div>
           </div>
           <div className="body px-4 py-8 text-xl font-pop text-[#040406]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta,
-            quod? Lorem ipsum dolor sit amet.
+            {message.message}
           </div>
 
           <div className="footer bg-[#040406] text-white p-4 rounded-b-lg flex items-center justify-between font-pop text-md">
@@ -40,6 +70,8 @@ function Rants() {
             </div>
           </div>
         </div>
+
+        ))}
       </div>
     </div>
   );

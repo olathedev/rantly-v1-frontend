@@ -10,8 +10,8 @@ function Hero() {
             <div className='font-mont md:w-2/3 mt-8 text-lg text-gray-800 font-medium'> Rantly is Sleek and <span className="font-bold">Super Easy to use</span>. Create an account, share link with friends and start getting anonymous rants on the go </div>
             <div className='flex gap-4 items-center justify-center mt-6 md:justify-start'>
              
-             <Link to='dashboard/user'> <button className="bg-primary text-white text-xl font-pop py-3 px-3 md:py-3 md:px-6 rounded-lg">Start Ranting</button> </Link>
-                <button className="border border-primary text-xl font-pop py-3 px-3 md:py-3 md:px-6 rounded-lg ml-2">Learn more</button>
+             <Link to='dashboard/user'> <button className="bg-primary text-white text-lg font-pop py-3 px-3 md:py-3 md:px-6 rounded-lg md:text-xl">Start Ranting</button> </Link>
+                <button className="border border-primary text-lg font-pop py-3 px-3 md:py-3 md:px-6 rounded-lg ml-2 md:text-xl">Learn more</button>
 
 
             </div>
