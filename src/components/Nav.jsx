@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Nav() {
   return (
-    <div className="navbar">
+    <div className="navbar ">
       <div className="hidden container my-6 mx-auto md:flex justify-between items-center md:px-10">
         <Link
           to="/"
@@ -18,16 +18,16 @@ function Nav() {
           <div>Developer</div>
         </div>
 
-        <div className="button">
+        <div className="button flex gap-6">
           <Link to={"dashboard/user"}>
             {" "}
-            <button className="bg-primary text-white text-xl font-pop py-2 px-4 rounded-lg cursor-pointer">
+            <button className="bg-primary text-white text-lg font-ws py-2 px-4 rounded-lg cursor-pointer">
               Signup 
             </button>
           </Link>
-          <Link to={"dashboard/user"}>
-            {" "}
-            <button className="border border-primary text-primary text-xl font-pop py-2 px-4 rounded-lg cursor-pointer">
+          <Link to="dashboard/user">
+          
+            <button className="bg-[#040406] text-white text-lg font-pop py-2 px-4 rounded-lg cursor-pointer">
               Signin 
             </button>
           </Link>

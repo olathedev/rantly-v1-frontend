@@ -10,9 +10,10 @@ function Rants() {
 
   useEffect(() => {
 
-    setIsPending(true)
     
     const getUser = async () => {
+      setIsPending(true)
+
       try{
         const {data} = await axios.get(`/messages/oladev01`)
         console.log(data)

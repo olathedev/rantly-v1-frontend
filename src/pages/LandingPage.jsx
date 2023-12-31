@@ -6,6 +6,7 @@ function LandingPage() {
   return (
     <div>
         <Nav />
+
         <Hero />
 
         <div className="mt-20 w-full bg-[#040406] h-52">
