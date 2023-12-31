@@ -1,33 +1,47 @@
-import React from "react";
+import {useState} from "react";
 import { Link } from "react-router-dom";
 
+
+
 function Nav() {
+
+  const [colorChange, setColorChange] = useState(false)
+
+  const changeNavColor = () => {
+    if(window.scrollY >= 80) {
+      setColorChange(true)
+    }else{
+      setColorChange(false)
+  }
+  }
+  window.addEventListener('scroll', changeNavColor)
+
   return (
-    <div className="navbar ">
-      <div className="hidden container my-6 mx-auto md:flex justify-between items-center md:px-10">
+    <div className={`navbar sticky top-0 py-4 ${colorChange ? "bg-[#040406] text-white" : 'bg-none'}`}>
+      <div className="hidden container mx-auto md:flex justify-between items-center md:px-10">
         <Link
           to="/"
-          className="navbar-brand text-3xl font-ws font-semibold text-gray-900"
+          className="navbar-brand text-3xl font-ws font-semibold"
         >
           Rantly
         </Link>
 
-        <div className="nav-links flex gap-5 text-lg font-pop items-center font-semibold text-gray-700 cursor-pointer">
-          <div className="hover:text-primary">About</div>
-          <div>FAQ</div>
-          <div>Developer</div>
+        <div className="nav-links flex gap-5 text-lg font-pop items-center font-semibold cursor-pointer">
+          <div className="nav-link">About</div>
+          <div className="nav-link">FAQ</div>
+          <div className="nav-link">Developer</div>
         </div>
 
         <div className="button flex gap-6">
           <Link to={"dashboard/user"}>
             {" "}
-            <button className="bg-primary text-white text-lg font-ws py-2 px-4 rounded-lg cursor-pointer">
+            <button className="border-2 border-primary bg-primary text-white text-lg font-ws py-2 px-4 rounded-md cursor-pointer">
               Signup 
             </button>
           </Link>
           <Link to="dashboard/user">
           
-            <button className="bg-[#040406] text-white text-lg font-pop py-2 px-4 rounded-lg cursor-pointer">
+            <button className="border-2 border-primary text-primary text-lg font-pop font-semibold py-2 px-4 rounded-md cursor-pointer">
               Signin 
             </button>
           </Link>
