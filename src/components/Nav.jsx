@@ -17,7 +17,7 @@ function Nav() {
   window.addEventListener('scroll', changeNavColor)
 
   return (
-    <div className={`navbar sticky top-0 py-4 ${colorChange ? "bg-gradient-to-r from-primary to-[#040406] text-white" : 'bg-[#eee]'} bg-opacity-80`}>
+    <div className={`navbar sticky top-0 py-4 ${colorChange ? "bg-gradient-to-r from-[#000]/80 from-30% to-[#040406]/80 to-40% text-white" : 'bg-[#eee]'} bg-opacity-80`}>
       <div className="hidden container mx-auto md:flex justify-between items-center md:px-10">
         <Link
           to="/"
@@ -35,7 +35,7 @@ function Nav() {
         <div className="button flex gap-6">
           <Link to={"dashboard/user"}>
             {" "}
-            <button className="border-2 border-primary bg-primary text-white text-lg font-ws py-2 px-4 rounded-md cursor-pointer">
+            <button className="bg-gradient-to-r from-primary to-[#040406] text-white text-lg font-ws py-2 px-4 rounded-md cursor-pointer">
               Signup 
             </button>
           </Link>
