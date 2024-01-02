@@ -1,7 +1,7 @@
 import React from 'react'
 import Nav from '../components/Nav'
 import Hero from '../components/Hero'
-
+import Features from '../components/Features'
 function LandingPage() {
   return (
     <div>
@@ -9,8 +9,8 @@ function LandingPage() {
 
         <Hero />
 
-        <div className="mt-20 w-full bg-[#040406] h-52">
-
+        <div className="lg:mt-20">
+          <Features />
         </div>
     </div>
   )
