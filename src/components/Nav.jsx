@@ -8,7 +8,7 @@ function Nav() {
   const [colorChange, setColorChange] = useState(false)
 
   const changeNavColor = () => {
-    if(window.scrollY >= 80) {
+    if(window.scrollY >= 76) {
       setColorChange(true)
     }else{
       setColorChange(false)
@@ -17,7 +17,7 @@ function Nav() {
   window.addEventListener('scroll', changeNavColor)
 
   return (
-    <div className={`navbar sticky top-0 py-4 ${colorChange ? "bg-[#040406] text-white" : 'bg-none'}`}>
+    <div className={`navbar sticky top-0 py-4 ${colorChange ? "bg-[#040406] text-white" : 'bg-[#eeeee]'} bg-opacity-80`}>
       <div className="hidden container mx-auto md:flex justify-between items-center md:px-10">
         <Link
           to="/"
@@ -50,8 +50,8 @@ function Nav() {
 
       {/* mobile */}
 
-      <div className="container my-6 mx-auto px-6 flex justify-between items-center md:hidden">
-        <div className="navbar-brand text-3xl font-ws font-semibold text-gray-900">
+      <div className="container mx-auto px-6 py-2 flex justify-between items-center md:hidden">
+        <div className="navbar-brand text-3xl font-ws font-semibol">
           Rantly
         </div>
 
