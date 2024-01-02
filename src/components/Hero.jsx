@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 function Hero() {
   return (
-    <div className='container px-6 mx-auto flex flex-col text-center items-center md:px-10 mt-4 md:mt-10 lg:flex-row lg:justify-between lg:text-start'>
-        <div className="pt-10 lg:w-2/3 lg:pt-10 flex-col gap-4">
+    <div className='container px-3 mx-auto flex flex-col text-center items-center md:px-10 mt-4 md:mt-10 lg:flex-row lg:justify-between lg:text-start'>
+        <div className="pt-10 lg:w-2/3 flex-col gap-4">
             <div className="text-3xl md:text-4xl lg:text-5xl font-ws font-bold text-gray-900">A Cool way to get Anonymous Messages.</div>
             
             <div className='font-pop lg:w-2/3 mt-4 md:mt-6 text-xl text-gray-700'><span className="font-bold">The workflow is imple, Create an account,</span> share link with friends and start getting anonymous rants. </div>

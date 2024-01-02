@@ -20,7 +20,7 @@ function Features() {
   return (
     <div className="container mx-auto px-8 mt-10 mb-8">
         <div className="title text-center mb-8">
-            <h3 className="font-semibold font-ws text-2xl md:text-3xl text-center text-gray-900">The best way to recieve anonymous messages </h3>
+            <h3 className="font-semibold font-ws text-2xl lg:text-3xl text-center text-gray-900">The best way to recieve anonymous messages </h3>
             <p className="text-grey-700 text-lg py-4 font-pop">Start ranting, join rantly and haeave full access to recieve anonymous messages, reply as well as book mark them</p>
         </div>
 

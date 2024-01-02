@@ -17,7 +17,7 @@ function Nav() {
   window.addEventListener('scroll', changeNavColor)
 
   return (
-    <div className={`navbar sticky top-0 py-4 ${colorChange ? "bg-[#040406] text-white" : 'bg-[#eeeee]'} bg-opacity-80`}>
+    <div className={`navbar sticky top-0 py-4 ${colorChange ? "bg-gradient-to-r from-primary to-[#040406] text-white" : 'bg-[#eee]'} bg-opacity-80`}>
       <div className="hidden container mx-auto md:flex justify-between items-center md:px-10">
         <Link
           to="/"
