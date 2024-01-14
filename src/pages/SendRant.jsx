@@ -99,10 +99,9 @@ function SendRant() {
         )}
 
         {modalOpen && (
-          <div>
 
             <div
-              className={`w-screen flex justify-center items-center bg-black background bg-opacity-25 ${
+              className={`w-screen flex justify-center items-center bg-black background bg-opacity-50 ${
                 modalOpen ? "fixed" : "hidden"
               } inset-0`}
             >
@@ -111,7 +110,7 @@ function SendRant() {
 
 
             </div>
-          </div>
+          
         )}
       </div>
     </div>

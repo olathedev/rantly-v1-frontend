@@ -12,7 +12,7 @@ function ErrorAlert({error}) {
             
                 <p className='mb-6'>{error} </p>
 
-            <Link to="/" className="py-3 px-2 mt-4 bg-primary text-white rounded-md">Go to home</Link>
+            <Link to="/" className="py-2 px-2 mt-4 bg-primary text-white rounded-md">Go to home</Link>
             </div>
         </div>
     </div>
