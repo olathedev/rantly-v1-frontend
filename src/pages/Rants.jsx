@@ -21,6 +21,7 @@ function Rants() {
         setMessages(data.messages)
       }catch(error){
         console.log(error)
+        setError(error.message)
         setIsPending(false)
         
       }
@@ -32,6 +33,24 @@ function Rants() {
 
   return (
     <div className="container mx-auto px-8 md:px-10 mt-8">
+
+      {isPending && (
+        <div className="flex h-screen justify-center items-center">
+          <div className="text-xl font-mont">Fetching messages...</div>
+</div>
+      )}
+
+      {error && (
+        <div className="flex h-screen justify-center items-center text-white">
+
+          <div className="py-6 px-20 bg-red-800 bg-opacity-70 text-center font-mont text-lg rounded-md">
+            <div className="border-b py-2 ">
+                Something went wrong
+            </div>
+          {error}
+          </div>
+        </div>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 
         {messages && messages.map(message => (

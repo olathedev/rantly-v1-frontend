@@ -6,14 +6,14 @@ function Hero() {
   return (
     <div className='container px-3 mx-auto flex flex-col text-center items-center md:px-10 mt-4 md:mt-10 lg:flex-row lg:justify-between lg:text-start'>
         <div className="pt-10 lg:w-2/3 flex-col gap-4">
-            <div className="text-3xl md:text-4xl lg:text-5xl font-ws font-bold text-gray-900">A Cool way to get Anonymous Messages.</div>
+            <div className="text-3xl md:pb-4 md:text-4xl lg:text-5xl font-ws font-bold text-gray-800">A Cool way to get Anonymous Messages.</div>
             
-            <div className='font-pop lg:w-2/3 mt-4 md:mt-6 text-xl text-gray-700'><span className="font-bold">The workflow is imple, Create an account,</span> share link with friends and start getting anonymous rants. </div>
-            <div className='flex items-center justify-center mt-10 lg:justify-start'>
+            <div className='font-pop lg:w-2/3 mt-4 md:mt-6 text-lg md:text-xl text-gray-700'><span className="font-bold">The workflow is imple, Create an account,</span> share link with friends and start getting anonymous rants. </div>
+            <div className='flex items-center justify-center mt-10 gap-2 md:gap-6 lg:justify-start'>
              
-             <Link to='dashboard/user'> <button className="bg-primary text-white text-lg font-pop py-3 px-16 md:py-3 md:px-20 rounded-lg md:text-xl">Start Ranting</button> </Link>
+             <Link to='dashboard/user'> <button className="bg-primary text-white text-lg font-pop py-3 px-5 md:py-3 md:px-5 rounded-lg">Start Ranting</button> </Link>
                
-
+             <Link to='dashboard/user'> <button className="bg-gray-200 font-pop text-lg py-3 px-5 rounded-lg">Developer</button> </Link>
 
             </div>
         </div>
