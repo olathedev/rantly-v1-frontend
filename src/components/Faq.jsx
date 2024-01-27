@@ -15,16 +15,16 @@ function Faq() {
     <div className="container mx-auto px-8 mt-32">
         <div className="flex items-center">
             <div className="md:md:w-2/3">
-                <h3 className="text-lg md:text-3xl font-ws md:w-1/2">Here are Some frequently asked questions.</h3>
+                <h3 className="text-xl md:text-3xl font-ws md:w-1/2">Here are Some frequently asked questions.</h3>
 
                 <div className="flex flex-col gap-6 mt-10">
                      {faqs.map(faq => (
 
                      
-                        <div className="border border-black py-3 mdw-[60%] rounded">
+                        <div className="border border-black py-3 md:w-[80%] rounded">
                             <div className="accordion-head flex justify-between items-center px-6">
 
-                            <h3 className="text-lg md:text-xl font-semibold">{faq.title}</h3>
+                            <h3 className="text-lg font-monts md:text-xl font-semibold">{faq.title}</h3>
                             <div> 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
