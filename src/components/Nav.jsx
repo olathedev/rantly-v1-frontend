@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 
-function Nav() {
+function Nav({setLoginModalOpen}) {
 
   const [scrollClasses, setScrollClasses] = useState(false)
   const [navOpen, setNavOpen] = useState(false)
@@ -18,7 +18,7 @@ function Nav() {
   window.addEventListener('scroll', changeNavColor)
 
   return (
-    <div className={`navbar sticky top-0 py-3 z-30 bg-white md:py-4 ${scrollClasses ? 'shadow-md' : 'shadow-none'}`}>
+    <div className={`navbar sticky top-0 py-3 z-10 bg-white md:py-4 ${scrollClasses ? 'shadow-md' : 'shadow-none'}`}>
       <div className="hidden container mx-auto md:flex justify-between items-center md:px-10">
         <Link
           to="/"
@@ -34,18 +34,16 @@ function Nav() {
         </div>
 
         <div className="button flex gap-6">
-          <Link to={"dashboard/user"}>
+         
             {" "}
-            <button className="bg-primary text-white text-lg font-ws py-3 px-6 rounded-md cursor-pointer">
+            <button className="bg-primary text-white text-lg font-ws py-3 px-6 rounded-md cursor-pointer" onClick={() => setLoginModalOpen(true)}>
               Signup
             </button>
-          </Link>
-          <Link to="dashboard/user">
-
-            <button className="border border-primary text-primary text-lg font-pop font-semibold py-3 px-6 rounded-md cursor-pointer">
+   
+            <button className="border border-primary text-primary text-lg font-pop font-semibold py-3 px-6 rounded-md cursor-pointer" onClick={() => setLoginModalOpen(true)}>
               Signin
             </button>
-          </Link>
+      
         </div>
       </div>
 

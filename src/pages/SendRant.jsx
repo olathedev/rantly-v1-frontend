@@ -101,7 +101,7 @@ function SendRant() {
         {modalOpen && (
 
             <div
-              className={`w-screen flex justify-center items-center bg-black background bg-opacity-50 ${
+              className={`w-screen flex justify-center items-center bg-black background bg-opacity-25 backdrop-blur-sm ${
                 modalOpen ? "fixed" : "hidden"
               } inset-0`}
             >
