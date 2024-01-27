@@ -51,7 +51,7 @@ function Nav() {
       {/* mobile */}
 
       <div className="container mx-auto px-6 py-2 flex justify-between items-center md:hidden">
-        <div className="navbar-brand text-3xl font-ws font-semibol">
+        <div className="navbar-brand text-xl font-ws font-semibold">
           Rantly
         </div>
 
