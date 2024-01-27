@@ -17,7 +17,7 @@ function Nav() {
   window.addEventListener('scroll', changeNavColor)
 
   return (
-    <div className={`navbar sticky top-0 py-3 z-30 bg-white md:py-4 ${scrollClasses && 'border-b shadow-md'}`}>
+    <div className={`navbar sticky top-0 py-3 z-30 bg-white md:py-4 ${scrollClasses ? 'shadow-md' : 'shadow-none'}`}>
       <div className="hidden container mx-auto md:flex justify-between items-center md:px-10">
         <Link
           to="/"

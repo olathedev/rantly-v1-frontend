@@ -6,7 +6,7 @@ function Hero() {
   return (
     <div className='container px-6 mx-auto flex flex-col items-center md:px-10 mt-4 md:mt-10 lg:flex-row lg:justify-between lg:text-start'>
         <div className="pt-10 lg:w-2/3 flex-col gap-4">
-            <div className="text-3xl md:pb-4 md:text-4xl lg:text-5xl font-monts font-bold text-gray-800 tracking-tighter leading-tight lg:leading-[1.1]">
+            <div className="text-3xl md:pb-4 md:text-4xl lg:text-5xl font-rale font-bold text-gray-800 tracking-tight leading-snug lg:leading-[1.1]">
                <span className='text-secondary'>Rantly is a</span>
               <br />
               A Cool way to get Anonymous Messages.</div>

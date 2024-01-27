@@ -12,7 +12,8 @@ export default {
         open: ['Open Sans', 'sans-serif'],
         pop: ['Poppins', 'sans-serif'],
         qs: ['Quicksand', 'sans-serif'],
-        ws: ['Work Sans', 'sans-serif']
+        ws: ['Work Sans', 'sans-serif'],
+        rale: ['Raleway', 'sans-serif']
       },
 
       colors : {
