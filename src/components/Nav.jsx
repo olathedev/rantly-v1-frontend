@@ -86,13 +86,13 @@ function Nav() {
         </button>
       </div>
 
-      <div className={`${navOpen ? 'block' : 'hidden'} pt-6 px-8 text-center`} onClick={() => setNavOpen(!navOpen)}>
+      <div className={`${navOpen ? 'block' : 'hidden'} pt-6 px-2 text-center`} onClick={() => setNavOpen(!navOpen)}>
           <ul className="flex flex-col gap-3 text-lg font-pop font-semibold">
             <li>About</li>
             <li>Faq</li>
             <li>Developer</li>
 
-            <div className="button flex flex-col pt-6 gap-2 w-full">
+            <div className="button flex flex-col pt-2 gap-2 w-full">
 
             <Link to="dashboard/user">
 
