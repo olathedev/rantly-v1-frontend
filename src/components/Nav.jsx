@@ -6,12 +6,13 @@ import { Link } from "react-router-dom";
 function Nav() {
 
   const [scrollClasses, setScrollClasses] = useState(false)
+  const [navOpen, setNavOen] = useState(false)
 
   const changeNavColor = () => {
     if(window.scrollY >= 80) {
-      setColorChange(true)
+      setScrollClasses(true)
     }else{
-      setColorChange(false)
+      setScrollClasses(false)
   }
   }
   window.addEventListener('scroll', changeNavColor)
@@ -55,22 +56,30 @@ function Nav() {
           Rantly
         </div>
 
-        <div className="font-semibold">
+        <button className="font-semibold" onClick={() => setNavOen(!navOpen)}>
+
+          <span></span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-8 h-8"
+            className={`w-8 h-8 ${navOpen ? 'hidden' : 'block'}`}
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
               d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
             />
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={`w-8 h-8 ${navOpen ? 'block' : 'hidden'}`}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+
+
           </svg>
-        </div>
+        </button>
       </div>
     </div>
   );

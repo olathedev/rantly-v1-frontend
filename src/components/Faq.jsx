@@ -13,9 +13,9 @@ function Faq() {
         ]
   return (
     <div className="container mx-auto px-8 mt-32">
-        <div className="flex items-center">
+        <div className="flex flex-col w-full items-center md:flex-row">
             <div className="md:md:w-2/3">
-                <h3 className="text-xl md:text-3xl font-semibold font-ws md:w-1/2">Here are Some frequently asked questions.</h3>
+                <h3 className="text-xl text-center md:text-3xl font-semibold font-ws md:w-1/2 md:text-start">Here are Some frequently asked questions.</h3>
 
                 <div className="flex flex-col gap-6 mt-10">
                      {faqs.map(faq => (
