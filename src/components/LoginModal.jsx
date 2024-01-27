@@ -10,7 +10,7 @@ export default function LoginModal({loginModalOpen, onClose, setLoginModalOpen})
   return (
     <div className='fixed inset-0 flex justify-center items-center bg-black bg-opacity-25  backdrop-blur-sm z-20' id='modalWrapper' onClick={handleClose}>
         
-        <div className="border-t-4 border-primary w-full h-screen bg-white py-4 px-6 md:w-[500px] flex flex-col rounded md:h-auto">
+        <div className="border-t-4 border-primary w-full h-screen bg-white pt-10 md:py-4 px-6 md:w-[500px] flex flex-col rounded md:h-auto">
            
            <div className="place-self-start md:place-self-end" onClick={onClose}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 hidden md:block">
