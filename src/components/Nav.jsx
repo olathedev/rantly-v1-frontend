@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Nav() {
 
-  const [colorChange, setColorChange] = useState(false)
+  const [scrollClasses, setScrollClasses] = useState(false)
 
   const changeNavColor = () => {
     if(window.scrollY >= 80) {
@@ -17,7 +17,7 @@ function Nav() {
   window.addEventListener('scroll', changeNavColor)
 
   return (
-    <div className={`navbar sticky top-0 py-3 z-30 bg-white border-b shadow-sm md:py-4`}>
+    <div className={`navbar sticky top-0 py-3 z-30 bg-white md:py-4 ${scrollClasses && 'border-b shadow-md'}`}>
       <div className="hidden container mx-auto md:flex justify-between items-center md:px-10">
         <Link
           to="/"
@@ -35,13 +35,13 @@ function Nav() {
         <div className="button flex gap-6">
           <Link to={"dashboard/user"}>
             {" "}
-            <button className="bg-primary text-white text-lg font-ws py-2 px-4 rounded-md cursor-pointer">
+            <button className="bg-primary text-white text-lg font-ws py-3 px-6 rounded-md cursor-pointer">
               Signup 
             </button>
           </Link>
           <Link to="dashboard/user">
           
-            <button className="border border-primary text-primary text-lg font-pop font-semibold py-2 px-4 rounded-md cursor-pointer">
+            <button className="border border-primary text-primary text-lg font-pop font-semibold py-3 px-6 rounded-md cursor-pointer">
               Signin 
             </button>
           </Link>
