@@ -3,6 +3,9 @@ import Nav from "../components/Nav";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import ErrorAlert from "../components/ErrorAlert";
+import loader from '../assets/loaders/loader2.svg'
+import loader2 from '../assets/loaders/loader1.svg'
+
 
 function SendRant() {
 
@@ -12,6 +15,8 @@ function SendRant() {
   const [error, setError] = useState(null);
   const [formError, setFormError] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+
+  const [success, setSuccess] = useState(null)
   const { username } = useParams();
 
   const handleWordCount = (e) => {
@@ -43,19 +48,27 @@ function SendRant() {
   }, []);
 
   const sendMessage = async (e) => {
+    setSuccess(null)
     e.preventDefault();
     setFormError(null);
+
     if (words.length === 0) {
       setFormError("Rant a word or two blud");
       return;
     }
 
+
+    setIsPending(true)
     try {
+
       const result = await axios.post(`rantly/message/${username}`, {
         message: words,
       });
 
       setWords("");
+      setIsPending(false)
+      setSuccess("Yayyy!!, your Rant has been sent")
+      setModalOpen(true)
       console.log(result);
     } catch (error) {
       console.log(error);
@@ -64,12 +77,12 @@ function SendRant() {
   return (
     <div>
       <Nav background={"#040406"} />
-      {isPending && <div>Loading...</div>}
+      {isPending && <div className="min-h-screen flex justify-center items-center"> <img src={loader2} alt="" /> </div>}
 
       <div className="mt-20 container mx-auto flex justify-center items-center px-6">
         {user && (
           <div>
-            <h3 className="text-4xl font-rale font-semibold text-primary my-2  md:text-center">
+            <h3 className="text-3xl font-pop font-semibold text-primary my-2  md:text-center">
               You're about to rant at {username}.{" "}
             </h3>
             <p className="text-lg mt-4 font-rale md:text-center">
@@ -78,7 +91,7 @@ function SendRant() {
             </p>
 
             <form className="mt-20" onSubmit={sendMessage}>
-              <div className="mb-3">
+              <div className="mb-2">
                 <textarea
                   type="text"
                   className={`border-b ${
@@ -100,8 +113,11 @@ function SendRant() {
                 <p className=" text-xl font-semibold text-primary mt-2">
                   /100
                 </p>
-                <button className="py-3 px-4 border-2 border-primary rounded-md text-xl font-ws mt-4 hover:bg-primary hover:text-white">
-                  Send Rant
+                <button className="py-3 px-10  rounded-md text-xl font-pop mt-4 bg-primary text-white" disabled={isPending}>
+                  {!isPending && 'Send Rant'}
+                  {isPending && (
+                    <img src={loader} className="h-10 mx-4" alt="" />
+                  )}
                 </button>
               </div>
             </form>
@@ -116,7 +132,7 @@ function SendRant() {
               } inset-0`}
             >
 
-              <ErrorAlert error={error} />
+              <ErrorAlert error={error} err="shesh, Something went wrong" ok="Success" success={success} />
 
 
             </div>

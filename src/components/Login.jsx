@@ -4,7 +4,7 @@ export default function({passwordVisibility, setPasswordVisibility, handleActive
     return (
         <div>
             <form className='flex flex-col gap-4'>
-                <div className="email flex flex-col gap-1 text-md font-mont">
+                <div className="email flex flex-col gap-1 text-md font-pop">
                     <label htmlFor="username" className=''>Username</label>
                     <input type="text" className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='Enter your username' />
                 </div>

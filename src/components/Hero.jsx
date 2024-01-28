@@ -7,7 +7,7 @@ function Hero({setLoginModalOpen}) {
     <div className='container px-6 mx-auto flex flex-col items-center md:px-10 mt-4 md:mt-10 md:flex-row lg:justify-between lg:text-start'>
         <div className="pt-10 md:w-2/3 flex-col gap-4">
             <div className="text-3xl md:pb-4 md:text-4xl lg:text-5xl font-rale font-bold text-gray-800 tracking-tight leading-snug lg:leading-[1.1]">
-               <span className='text-secondary'>Rantly is a</span>
+               <span className='text-primary'>Rantly is a</span>
               <br />
               A Cool way to get Anonymous Messages.</div>
             

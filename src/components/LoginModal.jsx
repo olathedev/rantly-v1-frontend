@@ -57,7 +57,7 @@ export default function LoginModal({ loginModalOpen, onClose, setLoginModalOpen 
                 <div className="content mt-24 md:mt-4">
                     <div className="header text-center mb-6">
                         <h1 className='text-2xl font-rale font-semibold'>Hey Buddy!</h1>
-                        <h3 className='py-3 text-2xl font-rale text-secondary'>Sign in to your account</h3>
+                        <h3 className='py-3 text-2xl font-rale text-primary font-semibold'>Sign in to your account</h3>
                     </div>
                     {activeForm === 'register' && (
                     
