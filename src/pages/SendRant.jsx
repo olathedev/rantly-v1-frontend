@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Nav from "../components/Nav";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import ErrorAlert from "../components/ErrorAlert";
 
 function SendRant() {
+
   const [words, setWords] = useState("");
   const [isPending, setIsPending] = useState(false);
   const [user, setUser] = useState(null);
@@ -13,12 +14,20 @@ function SendRant() {
   const [modalOpen, setModalOpen] = useState(false);
   const { username } = useParams();
 
+  const handleWordCount = (e) => {
+      const value = e.target.value
+
+      if(value.length <= 100) {
+        setWords(value)
+      }
+  }
+
   useEffect(() => {
     setIsPending(true);
 
     const getUser = async () => {
       try {
-        const { data } = await axios.get(`/profie/${username}`);
+        const { data } = await axios.get(`/user/${username}`);
         console.log(data.user);
         setIsPending(false);
         setUser(data.user);
@@ -60,10 +69,10 @@ function SendRant() {
       <div className="mt-20 container mx-auto flex justify-center items-center px-6">
         {user && (
           <div>
-            <h3 className="text-4xl font-ws font-semibold text-primary my-2  md:text-center">
+            <h3 className="text-4xl font-rale font-semibold text-primary my-2  md:text-center">
               You're about to rant at {username}.{" "}
             </h3>
-            <p className="text-xl font-semibold mt-4 font-pop md:text-center">
+            <p className="text-xl mt-4 font-rale md:text-center">
               your rant can be in form of confessions, Questions, Experiences,
               warnings, yarns or anything random, just dont be boring.
             </p>
@@ -77,7 +86,8 @@ function SendRant() {
                   } focus:outline-none w-full text-lg font-mont`}
                   placeholder="Start Ranting.."
                   value={words}
-                  onChange={(e) => setWords(e.target.value)}
+                  onChange={handleWordCount}
+                 
                 >
                   {" "}
                   Start Ranting..{" "}
@@ -88,7 +98,7 @@ function SendRant() {
               </div>
               <div className="flex flex-col md:flex-row justify-between md:items-center">
                 <p className=" text-xl font-semibold text-primary mt-2">
-                  {words.length}/125 words
+                  /100
                 </p>
                 <button className="py-3 px-4 border-2 border-primary rounded-md text-xl font-ws mt-4 hover:bg-primary hover:text-white">
                   Send Rant
@@ -101,7 +111,7 @@ function SendRant() {
         {modalOpen && (
 
             <div
-              className={`w-screen flex justify-center items-center bg-black background bg-opacity-25 backdrop-blur-sm ${
+              className={`w-screen flex justify-center items-center bg-black background bg-opacity-25 backdrop-blur-sm z-20 ${
                 modalOpen ? "fixed" : "hidden"
               } inset-0`}
             >

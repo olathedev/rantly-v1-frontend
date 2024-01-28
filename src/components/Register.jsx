@@ -1,44 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-export default function LoginModal({loginModalOpen, onClose, setLoginModalOpen}) {
-
-    const [firstname, setFirstName] = useState(null)
-    const [lastname, setLastName] = useState(null)
-    const [username, setUsername] = useState(null)
-    const [password, setPassword] = useState(null)
-    const [passwordVisibility, setPasswordVisibility] = useState(false)
-    
-
-    const handleClose = (e) => {
-        if(e.target.id === 'modalWrapper') onClose()
-    }
-
-
+export default function Register() {
   return (
-    <div className='fixed inset-0 flex justify-center items-center bg-black bg-opacity-25  backdrop-blur-sm z-20' id='modalWrapper' onClick={handleClose}>
-        
-        <div className="border-t-4 border-primary w-full h-screen bg-white pt-10 md:py-4 px-6 md:w-[500px] flex flex-col rounded md:h-auto">
-           
-           <div className="place-self-start md:place-self-end" onClick={onClose}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 hidden md:block">
-            <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
-
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 md:hidden">
-            <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
-            </svg>
-
-
-           </div>
-           
-
-            <div className="content mt-32 md:m-0">
-                <div className="header text-center mb-6">
-                    <h1 className='text-2xl font-rale font-semibold'>Hey Buddy!</h1>
-                    <h3 className='py-3 text-2xl font-rale text-secondary'>Sign in to your account</h3>
-                </div>
-
-                <form className='flex flex-col gap-4'>
+    <div>
+        <form className='flex flex-col gap-4'>
                     <div className="email flex flex-col gap-1 text-md font-mont">
                         <label htmlFor="username" className=''>Username</label>
                         <input type="text" className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='Enter your username' />
@@ -80,10 +45,6 @@ export default function LoginModal({loginModalOpen, onClose, setLoginModalOpen})
                         <div className='font-mont text-md mt-2'>Dont have an account?<span className='text-primary'>Create one</span> </div>
                     </div>
                 </form>
-            </div>
-
-        </div>
-        
     </div>
   )
 }

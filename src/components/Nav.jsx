@@ -47,7 +47,7 @@ function Nav({setLoginModalOpen}) {
         </div>
       </div>
 
-      {/* mobile */}
+      {/* mobile */} 
 
     <div className="md:hidden container mx-auto px-6 py-2">
       <div className=" flex justify-between items-center">
@@ -55,7 +55,7 @@ function Nav({setLoginModalOpen}) {
           Rantly
         </div>
 
-        <button className="font-bold cursor-pointer" onClick={() => setNavOpen(!navOpen)}>
+        <button className="font-bold cursor-pointer text-primary focus:outline" onClick={() => setNavOpen(!navOpen)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
