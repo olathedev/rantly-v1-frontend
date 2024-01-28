@@ -5,6 +5,8 @@ import Features from '../components/Features'
 import About from '../components/About'
 import Faq from '../components/Faq'
 import LoginModal from '../components/LoginModal'
+import Testimonials from '../components/Testimonials'
+import Footer from '../components/Footer'
 
 function LandingPage() {
 
@@ -26,6 +28,11 @@ function LandingPage() {
           <Features />
           <About />
           <Faq />
+          <Testimonials />
+
+          <div className="w-full border-b border-gray-300 mt-8"></div>
+
+          <Footer />
         </div>
     </div>
   )

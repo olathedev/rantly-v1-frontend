@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export default function Register({ passwordVisibility, setPasswordVisibility, handleActiveForm, firstname, setFirstName, lastname, setLastName, username, setUsername, password, setPassword, handleRegister }) {
+export default function Register({ handleActiveForm, firstname, setFirstName, lastname, setLastName, username, setUsername, password, setPassword, handleRegister, isPending }) {
+
+    const [passwordVisibility, setPasswordVisibility] = useState(false)
+
     return (
         <div>
             <form onSubmit={handleRegister} className='flex flex-col gap-3'>
@@ -47,9 +50,11 @@ export default function Register({ passwordVisibility, setPasswordVisibility, ha
                 </div>
 
                 <div className="foot py-3 text-center">
-                    <button className="py-3 px-4 bg-secondary rounded-md w-full text-white font-semibold text-lg font-pop">Sign in</button>
+                    <button className="py-3 px-4 bg-secondary rounded-md w-full text-white font-semibold text-lg font-pop" disabled={isPending}>
+                    {isPending ? "loading..." : "Sign in"}
+                    </button>
 
-                    <div className='font-mont text-md mt-2'>Already have an account?<span className='text-primary cursor-pointer font-semibold' onClick={() => handleActiveForm('login')}>Signin</span> </div>
+                    <div className='font-mont text-md mt-2'>Already have an account?<span className='text-primary cursor-pointer font-semibold' onClick={() => handleActiveForm('login')}>Sign in</span> </div>
                 </div>
 
 

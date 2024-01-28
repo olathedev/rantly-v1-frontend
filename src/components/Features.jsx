@@ -25,10 +25,10 @@ function Features() {
             <p className="text-grey-700 text-lg py-4 font-pop">Start ranting, join rantly and have full access to recieve anonymous messages, reply as well as book mark them</p>
         </div>
 
-        <div className="grid grid-cols-1 px-4 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           {cardItems.map(cardItem => (
-            <div className="features-card rounded-md lg:h-48 bg-gray-200 flex flex-col p-4 bg-cover bg-center" style={{backgroundImage: `url(${cardBg})`}}>
+            <div className="features-card rounded-md lg:h-48 bg-gray-200 flex flex-col p-4 bg-cover bg-center" style={{backgroundImage: `url(${cardBg})`}} key={Math.floor(Math.random())}>
                 <div className="icon"> <img src={cardItem.icon} alt="" /> </div>
                 <div className="text-xl font-semibold font-pop mt-4">{cardItem.title}</div>
                 <div className="font-pop text-grey-900 mt-2">Create an acount and get a shrable rantly link and securely share on any platform</div>

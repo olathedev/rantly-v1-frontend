@@ -1,21 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export default function({passwordVisibility, setPasswordVisibility, handleActiveForm}) {
+export default function({handleActiveForm, username, setUsername, password, setPassword}) {
+    const [passwordVisibility, setPasswordVisibility] = useState(false)
+
     return (
         <div>
             <form className='flex flex-col gap-4'>
                 <div className="email flex flex-col gap-1 text-md font-pop">
                     <label htmlFor="username" className=''>Username</label>
-                    <input type="text" className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='Enter your username' />
+                    <input type="text" className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='Enter your username' value={username} onChange={e => setUsername(e.target.value)} />
                 </div>
 
                 <div className="email flex flex-col gap-1 text-md font-mont">
                     <label htmlFor="password" className=''>Password</label>
 
                     <div className='flex flex-col relative'>
-                        <input type={passwordVisibility ? 'text' : 'password'} className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='Enter password' />
+                        <input type={passwordVisibility ? 'text' : 'password'} className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='Enter password' value={password} onChange={e => setPassword(e.target.value)} />
 
-                        <div className='absolute right-3 top-3' onClick={() => setPasswordVisibility(!passwordVisibility)}>
+                        <div className='absolute right-3 top-3 pointer' onClick={() => setPasswordVisibility(!passwordVisibility)}>
 
                             {!passwordVisibility ? (
 
