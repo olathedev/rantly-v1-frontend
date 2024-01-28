@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 
+::-webkit-scrollbar {
+    width: 8px; /* width of the scrollbar */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: #eee; /* color of the thumb */
+    border-radius: 2px; /* roundness of the thumb */
+}
+
 
 .nav-link {
     @apply hover:border-b-2 hover:border-primary

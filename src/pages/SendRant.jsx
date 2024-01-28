@@ -27,7 +27,7 @@ function SendRant() {
 
     const getUser = async () => {
       try {
-        const { data } = await axios.get(`/user/${username}`);
+        const { data } = await axios.get(`rantly/user/${username}`);
         console.log(data.user);
         setIsPending(false);
         setUser(data.user);
@@ -51,7 +51,7 @@ function SendRant() {
     }
 
     try {
-      const result = await axios.post(`/message/${username}`, {
+      const result = await axios.post(`rantly/message/${username}`, {
         message: words,
       });
 
@@ -72,7 +72,7 @@ function SendRant() {
             <h3 className="text-4xl font-rale font-semibold text-primary my-2  md:text-center">
               You're about to rant at {username}.{" "}
             </h3>
-            <p className="text-xl mt-4 font-rale md:text-center">
+            <p className="text-lg mt-4 font-rale md:text-center">
               your rant can be in form of confessions, Questions, Experiences,
               warnings, yarns or anything random, just dont be boring.
             </p>

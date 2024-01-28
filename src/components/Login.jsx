@@ -1,27 +1,19 @@
 import React from 'react'
 
-export default function Register({ passwordVisibility, setPasswordVisibility, handleActiveForm, firstname, setFirstName, lastname, setLastName, username, setUsername, password, setPassword, handleRegister }) {
+export default function({passwordVisibility, setPasswordVisibility, handleActiveForm}) {
     return (
         <div>
-            <form onSubmit={handleRegister}>
-                <div className="email flex flex-col gap-1 text-md font-mont">
-                    <label htmlFor="username" className=''>Firstname</label>
-                    <input type="text" className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='John' value={firstname} onChange={(e) => setFirstName(e.target.value)} />
-                </div>
-                <div className="email flex flex-col gap-1 text-md font-mont">
-                    <label htmlFor="username" className=''>Lastname</label>
-                    <input type="text" className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='Doe' value={lastname} onChange={(e) => setLastName(e.target.value)}  />
-                </div>
+            <form className='flex flex-col gap-4'>
                 <div className="email flex flex-col gap-1 text-md font-mont">
                     <label htmlFor="username" className=''>Username</label>
-                    <input type="text" className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='Enter your username' value={username} onChange={(e) => setUsername(e.target.value)} />
+                    <input type="text" className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='Enter your username' />
                 </div>
 
                 <div className="email flex flex-col gap-1 text-md font-mont">
                     <label htmlFor="password" className=''>Password</label>
 
                     <div className='flex flex-col relative'>
-                        <input type={passwordVisibility ? 'text' : 'password'} className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='Enter password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <input type={passwordVisibility ? 'text' : 'password'} className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='Enter password' />
 
                         <div className='absolute right-3 top-3' onClick={() => setPasswordVisibility(!passwordVisibility)}>
 
@@ -46,13 +38,12 @@ export default function Register({ passwordVisibility, setPasswordVisibility, ha
                     </div>
                 </div>
 
+
                 <div className="foot py-3 text-center">
                     <button className="py-3 px-4 bg-secondary rounded-md w-full text-white font-semibold text-lg font-pop">Sign in</button>
 
-                    <div className='font-mont text-md mt-2'>Already have an account?<span className='text-primary cursor-pointer font-semibold' onClick={() => handleActiveForm('login')}>Signin</span> </div>
+                    <div className='font-mont text-md mt-2'>Dont have an account?<span className='text-primary cursor-pointer font-semibold' onClick={() => handleActiveForm('register')}>Create one</span> </div>
                 </div>
-
-
             </form>
         </div>
     )
