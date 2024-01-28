@@ -3,7 +3,7 @@ import React from 'react'
 export default function Register({ passwordVisibility, setPasswordVisibility, handleActiveForm, firstname, setFirstName, lastname, setLastName, username, setUsername, password, setPassword, handleRegister }) {
     return (
         <div>
-            <form onSubmit={handleRegister}>
+            <form onSubmit={handleRegister} className='flex flex-col gap-3'>
                 <div className="email flex flex-col gap-1 text-md font-mont">
                     <label htmlFor="username" className=''>Firstname</label>
                     <input type="text" className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='John' value={firstname} onChange={(e) => setFirstName(e.target.value)} />
