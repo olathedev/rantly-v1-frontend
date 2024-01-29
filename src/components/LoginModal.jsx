@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Register from './Register'
 import Login from './Login'
 import axios from 'axios'
+import useLoginRegister from '../customhooks/useLoginRegister'
 
 export default function LoginModal({ loginModalOpen, onClose, setLoginModalOpen }) {
 
@@ -9,26 +10,16 @@ export default function LoginModal({ loginModalOpen, onClose, setLoginModalOpen 
     const [lastname, setLastName] = useState("")
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [isPending, SetIsPending] = useState(false)
+    
+    const {register, isPending} = useLoginRegister()
+
+    const handleRegister = (e) => {
+        e.preventDefault()
+        register(firstname, lastname, username, password)
+    }
 
 
     const [activeForm, setActiveForm] = useState('login')
-
-    const handleRegister = async (e) => {
-        SetIsPending(true)    
-        e.preventDefault()
-        try {
-            const result = axios.post('auth/register', {
-                firstname, lastname, username, password
-            })
-            SetIsPending(false)    
-            console.log(result);
-        } catch (error) {
-            SetIsPending(false)    
-
-            console.log(error);
-        }
-    }
 
     const handleActiveForm = (form) => {
         setActiveForm(form)
