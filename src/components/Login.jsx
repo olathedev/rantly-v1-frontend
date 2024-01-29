@@ -1,11 +1,22 @@
 import React, { useState } from 'react'
+import { useLogin } from '../customhooks/useLogin'
 
-export default function({handleActiveForm, username, setUsername, password, setPassword}) {
+export default function({handleActiveForm}) {
+
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+    const {login, isPending} = useLogin()
     const [passwordVisibility, setPasswordVisibility] = useState(false)
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        login(username, password)
+    }
 
     return (
         <div>
-            <form className='flex flex-col gap-4'>
+            <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
                 <div className="email flex flex-col gap-1 text-md font-pop">
                     <label htmlFor="username" className=''>Username</label>
                     <input type="text" className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='Enter your username' value={username} onChange={e => setUsername(e.target.value)} />
@@ -42,7 +53,9 @@ export default function({handleActiveForm, username, setUsername, password, setP
 
 
                 <div className="foot py-3 text-center">
-                    <button className="py-3 px-4 bg-secondary rounded-md w-full text-white font-semibold text-lg font-pop">Sign in</button>
+                    <button className="py-3 px-4 bg-secondary rounded-md w-full text-white font-semibold text-lg font-pop">
+                       {!isPending ? 'Sign in' : 'loading..'}
+                        </button>
 
                     <div className='font-mont text-md mt-2'>Dont have an account?<span className='text-primary cursor-pointer font-semibold' onClick={() => handleActiveForm('register')}>Create one</span> </div>
                 </div>

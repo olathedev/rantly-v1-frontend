@@ -1,12 +1,28 @@
 import React, { useState } from 'react'
+import useLoginRegister from '../customhooks/useLoginRegister'
+import tick from '../assets/tick.png'
 
-export default function Register({ handleActiveForm, firstname, setFirstName, lastname, setLastName, username, setUsername, password, setPassword, handleRegister, isPending }) {
+
+export default function Register({ handleActiveForm }) {
+
+    const [firstname, setFirstName] = useState("")
+    const [lastname, setLastName] = useState("")
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    
+    const {register, isPending, success} = useLoginRegister()
+
+    const handleRegister = async (e) => {
+        e.preventDefault()
+        await register(firstname, lastname, username, password)
+
+    }
 
     const [passwordVisibility, setPasswordVisibility] = useState(false)
 
     return (
         <div>
-            <form onSubmit={handleRegister} className='flex flex-col gap-3'>
+            <form onSubmit={handleRegister} className={`${!success ? 'flex': 'hidden'} flex-col gap-3`}>
                 <div className="email flex flex-col gap-1 text-md font-mont">
                     <label htmlFor="username" className=''>Firstname</label>
                     <input type="text" className="py-3 px-3 border border-gray-600 rounded-md focus:border-secondary focus:outline-none" placeholder='John' value={firstname} onChange={(e) => setFirstName(e.target.value)} />
@@ -59,6 +75,18 @@ export default function Register({ handleActiveForm, firstname, setFirstName, la
 
 
             </form>
+
+                <div className={`${success ? 'flex': 'hidden'} justify-center items-center`}>
+                    <div className='text-center flex flex-col gap-4'>
+                   
+                            <h3 className='text-xl font-pop font-semibold'>Yayy, Your rantly account is up</h3>
+                            <button className="py-3 px-4 bg-primary rounded-md text-xl font-pop text-white text-semibold">Sign in</button>
+
+
+                    </div>
+                  
+                </div>
+
         </div>
     )
 }

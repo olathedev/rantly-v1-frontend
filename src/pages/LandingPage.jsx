@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Nav from '../components/Nav'
 import Hero from '../components/Hero'
 import Features from '../components/Features'
@@ -7,16 +7,19 @@ import Faq from '../components/Faq'
 import LoginModal from '../components/LoginModal'
 import Testimonials from '../components/Testimonials'
 import Footer from '../components/Footer'
+import { ModalContext, ModalContextProvider } from '../context/ModalContext'
 
 function LandingPage() {
 
-  const [loginModalOpen, setLoginModalOpen] = useState(false) 
+  const {loginModalOpen, setLoginModalOpen} = useContext(ModalContext)
+
   return (
     <div>
 
+    
      {loginModalOpen && (
 
-      <LoginModal loginModalOpen={loginModalOpen} setLoginModalOpen={setLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
+      <LoginModal onClose={() => setLoginModalOpen(false)} />
 
      )}
     
@@ -35,6 +38,7 @@ function LandingPage() {
           <Footer />
         </div>
     </div>
+    
   )
 }
 

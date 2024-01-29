@@ -2,24 +2,13 @@ import React, { useState } from 'react'
 import Register from './Register'
 import Login from './Login'
 import axios from 'axios'
-import useLoginRegister from '../customhooks/useLoginRegister'
 
-export default function LoginModal({ loginModalOpen, onClose, setLoginModalOpen }) {
+export default function LoginModal({ onClose }) {
 
-    const [firstname, setFirstName] = useState("")
-    const [lastname, setLastName] = useState("")
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    
-    const {register, isPending} = useLoginRegister()
-
-    const handleRegister = (e) => {
-        e.preventDefault()
-        register(firstname, lastname, username, password)
-    }
-
+   
 
     const [activeForm, setActiveForm] = useState('login')
+    const [success, setSuccess] = useState(null)
 
     const handleActiveForm = (form) => {
         setActiveForm(form)
@@ -42,8 +31,6 @@ export default function LoginModal({ loginModalOpen, onClose, setLoginModalOpen 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 md:hidden">
                         <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
                     </svg>
-
-
                 </div>
 
 
@@ -54,12 +41,12 @@ export default function LoginModal({ loginModalOpen, onClose, setLoginModalOpen 
                     </div>
                     {activeForm === 'register' && (
 
-                        <Register {...{ handleActiveForm, firstname, setFirstName, lastname, setLastName, username, setUsername, password, setPassword, handleRegister, isPending }} />
+                        <Register {...{ handleActiveForm, success, setSuccess }} />
                     )}
 
                     {activeForm === 'login' && (
 
-                        <Login {...{handleActiveForm, username, setUsername, password, setPassword, isPending}} />
+                        <Login {...{handleActiveForm}} />
                     )}
 
 

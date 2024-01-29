@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../customhooks/useAuthContext";
+import { useLogout } from "../customhooks/useLogout";
 
 
 
@@ -7,6 +9,9 @@ function Nav({setLoginModalOpen}) {
 
   const [scrollClasses, setScrollClasses] = useState(false)
   const [navOpen, setNavOpen] = useState(false)
+
+  const {user} = useAuthContext()
+  const {logout} = useLogout()
 
   const changeNavColor = () => {
     if (window.scrollY >= 80) {
@@ -35,14 +40,22 @@ function Nav({setLoginModalOpen}) {
 
         <div className="button flex gap-6">
          
-            {" "}
-            <button className="bg-primary text-white text-lg font-ws py-3 px-6 rounded-md cursor-pointer" onClick={() => setLoginModalOpen(true)}>
-              Signup
-            </button>
+            {!user && (
+               <button className="bg-primary text-white text-lg font-ws py-2 px-6 rounded-md cursor-pointer" onClick={() => setLoginModalOpen(true)}>
+               Signup
+             </button>
+            )}
+           
    
-            <button className="border border-primary text-primary text-lg font-pop font-semibold py-3 px-6 rounded-md cursor-pointer" onClick={() => setLoginModalOpen(true)}>
+            <button className="border border-primary text-primary text-lg font-pop font-semibold py-2 px-6 rounded-md cursor-pointer" onClick={() => setLoginModalOpen(true)}>
               Signin
             </button>
+
+            {user && (
+              <button className="border border-primary text-primary text-lg font-pop font-semibold py-2 px-4 rounded-md cursor-pointer" onClick={logout}>
+              SignOut
+            </button>
+            )}
       
         </div>
       </div>

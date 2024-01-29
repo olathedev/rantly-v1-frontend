@@ -10,8 +10,8 @@ function Dashboard() {
             <DashboardNav />
 
             <Routes>
-                <Route path='user' element={<User />} />
-                <Route path='rants' element={<Rants />} />
+                <Route path='/user' element={<User />} />
+                <Route path='/rants' element={<Rants />} />
             </Routes>
         </div>
     )
