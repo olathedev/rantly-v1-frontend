@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { MdAccessTime, MdShare } from "react-icons/md";
 import axios from 'axios'
+import { useAuthContext } from "../customhooks/useAuthContext";
 
 function Rants() {
 
   const [isPending, setIsPending] = useState(false)
   const [messages, setMessages] = useState(null)
   const [error, setError] = useState(null)
+  const {user} = useAuthContext()
 
   useEffect(() => {
 
@@ -15,19 +17,26 @@ function Rants() {
       setIsPending(true)
 
       try{
-        const {data} = await axios.get(`/messages/oladev01`)
+        const {data} = await axios.get(`/rantly/messages`, {
+          headers: {
+            'Authorization': `Bearer ${user.token}`
+          }
+        })
         console.log(data)
         setIsPending(false)
         setMessages(data.messages)
       }catch(error){
-        console.log(error)
-        setError(error.message)
+        console.log(error.response)
+        setError("An error occured")
         setIsPending(false)
         
       }
     }
 
-  getUser()
+
+    if(user) {
+      getUser()
+    }
   }, [])
 
 
@@ -56,7 +65,7 @@ function Rants() {
         {messages && messages.map(message => (
 
         
-        <div className="message-box border-primary bg-primary bg-opacity-25 rounded-lg">
+        <div className="message-box border-primary bg-primary bg-opacity-25 rounded-lg relative bottom-0">
           <div className="header px-4 py-6 bg-[#040406] text-white flex justify-between rounded-t-lg">
             <h2 className="text-lg font-pop font-semibold">Rant</h2>
 
@@ -80,7 +89,7 @@ function Rants() {
           <div className="body px-4 py-8 text-xl font-pop text-[#040406]">
             {message.message}
           </div>
-
+{/* 
           <div className="footer bg-[#040406] text-white p-4 rounded-b-lg flex items-center justify-between font-pop text-md">
             <p>Sent: 2Hours ago</p>
 
@@ -88,7 +97,7 @@ function Rants() {
               {" "}
               <MdShare />{" "}
             </div>
-          </div>
+          </div> */}
         </div>
 
         ))}

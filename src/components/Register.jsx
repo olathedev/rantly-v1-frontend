@@ -77,10 +77,10 @@ export default function Register({ handleActiveForm }) {
             </form>
 
                 <div className={`${success ? 'flex': 'hidden'} justify-center items-center`}>
-                    <div className='text-center flex flex-col gap-4'>
+                    <div className='text-center flex flex-col gap-6'>
                    
-                            <h3 className='text-xl font-pop font-semibold'>Yayy, Your rantly account is up</h3>
-                            <button className="py-3 px-4 bg-primary rounded-md text-xl font-pop text-white text-semibold">Sign in</button>
+                            <h3 className='text-xl font-rale font-semibold'>Yayy, Your rantly account is up</h3>
+                            <button className="py-3 px-4 bg-primary rounded-md text-xl font-pop text-white text-semibold mt-3" onClick={() => handleActiveForm('login')}>Sign in</button>
 
 
                     </div>

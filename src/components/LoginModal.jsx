@@ -8,9 +8,9 @@ export default function LoginModal({ onClose }) {
    
 
     const [activeForm, setActiveForm] = useState('login')
-    const [success, setSuccess] = useState(null)
 
     const handleActiveForm = (form) => {
+       
         setActiveForm(form)
     }
     const handleClose = (e) => {
@@ -41,7 +41,7 @@ export default function LoginModal({ onClose }) {
                     </div>
                     {activeForm === 'register' && (
 
-                        <Register {...{ handleActiveForm, success, setSuccess }} />
+                        <Register {...{ handleActiveForm }} />
                     )}
 
                     {activeForm === 'login' && (

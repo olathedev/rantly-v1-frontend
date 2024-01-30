@@ -10,7 +10,7 @@ import axios from 'axios'
 
 
 axios.defaults.baseURL = 'https://rantly-v1-api.cyclic.app/api/v1/'
-// axios.defaults.baseURL = import.meta.env.API_URL
+// axios.defaults.baseURL = 'http://localhost:4000/api/v1'
 
 
 
