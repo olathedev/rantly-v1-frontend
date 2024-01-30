@@ -5,14 +5,18 @@ import { Link } from 'react-router-dom'
 
 function DashboardNav() {
   return (
-    <div className='w-full border-b sticky top-o z-20'>
+    <div className='w-full border-b sticky top-0 z-30 bg-white'>
       <div className='container mx-auto px-4 flex justify-between items-center py-4'>
-        <Link to='/dashboard/user' className="text-primary text-2xl font-ws font-semibold hidden md:flex">Board</Link>
-        <div className='flex gap-6 items-center font-mont'>
-          {/* <h4>Dashboard</h4> */}
-          <Link to='/dashboard/rants'>
-            <button className='py-3 px-3 bg-slate-950 rounded text-white font-pop'>messages</button>
-          </Link>
+        <div className="navbrand">
+          <Link to='/dashboard/user' className="text-primary text-2xl font-ws font-semibold">Rantly-Board</Link>
+        </div>
+
+        <div className='flex items-center gap-10 font-pop'>
+          <div>
+            <Link to='/dashboard/rants'>
+              <button className='py-3 px-3 bg-slate-950 rounded text-white font-pop hidden md:flex'>Messages</button>
+            </Link>
+          </div>
           <div className='className flex items-center gap-2'>
             <div className="flex flex-col text-center text-sm font-semibold">
               <div>oladev</div>
