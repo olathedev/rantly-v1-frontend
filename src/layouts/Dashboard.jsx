@@ -6,9 +6,9 @@ import Rants from '../pages/Rants'
 
 function Dashboard() {
   return (
-        <div>
+        <div className='bg-[#eee'>
             <DashboardNav />
-
+            
             <Routes>
                 <Route path='/user' element={<User />} />
                 <Route path='/rants' element={<Rants />} />

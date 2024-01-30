@@ -5,13 +5,13 @@ import { useLogout } from "../customhooks/useLogout";
 
 
 
-function Nav({setLoginModalOpen}) {
+function Nav({ setLoginModalOpen }) {
 
   const [scrollClasses, setScrollClasses] = useState(false)
   const [navOpen, setNavOpen] = useState(false)
 
-  const {user} = useAuthContext()
-  const {logout} = useLogout()
+  const { user } = useAuthContext()
+  const { logout } = useLogout()
 
   const changeNavColor = () => {
     if (window.scrollY >= 80) {
@@ -39,65 +39,80 @@ function Nav({setLoginModalOpen}) {
         </div>
 
         <div className="button flex gap-6">
-         
-            {!user && (
-               <button className="bg-primary text-white text-lg font-ws py-2 px-6 rounded-md cursor-pointer" onClick={() => setLoginModalOpen(true)}>
-               Signup
-             </button>
-            )}
-           
-   
-            <button className="border border-primary text-primary text-lg font-pop font-semibold py-2 px-6 rounded-md cursor-pointer" onClick={() => setLoginModalOpen(true)}>
-              Signin
-            </button>
 
-            {user && (
+          {!user && (
+
+            <div className="flex items-center gap-3">
+              <button className="bg-primary text-white text-lg font-ws py-3 px-6 rounded-md cursor-pointer" onClick={() => setLoginModalOpen(true)}>
+                Signup
+              </button>
+
+              <button className="border border-primary text-primary text-lg font-pop font-semibold py-3 px-6 rounded-md cursor-pointer" onClick={() => setLoginModalOpen(true)}>
+                Signin
+              </button>
+            </div>
+          )}
+
+
+
+
+          {user && (
+
+            <div className="flex items-center gap-3">
+
               <button className="border border-primary text-primary text-lg font-pop font-semibold py-2 px-4 rounded-md cursor-pointer" onClick={logout}>
-              SignOut
-            </button>
-            )}
-      
+                SignOut
+              </button>
+
+            <Link to="/dashboard">
+              <button className="border text-white bg-slate-950 text-lg font-pop font-semibold py-2 px-4 rounded-md cursor-pointer">
+                Rants Board
+              </button>
+              </Link>
+            </div>
+          )}
+
         </div>
       </div>
 
-      {/* mobile */} 
+      {/* mobile */}
 
-    <div className="md:hidden container mx-auto px-6 py-2">
-      <div className=" flex justify-between items-center">
-        <div className="navbar-brand text-2xl font-ws font-semibold">
-          Rantly
+      <div className="md:hidden container mx-auto px-6 py-2">
+        <div className=" flex justify-between items-center">
+          <div className="navbar-brand text-2xl font-ws font-semibold">
+            Rantly
+          </div>
+
+          <button className="font-bold cursor-pointer text-primary focus:outline" onClick={() => setNavOpen(!navOpen)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className={`w-8 h-8 ${navOpen ? 'hidden' : 'block'}`}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+
+
+
+
+
+
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={`w-8 h-8 ${navOpen ? 'block' : 'hidden'}`}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+
+          </button>
         </div>
 
-        <button className="font-bold cursor-pointer text-primary focus:outline" onClick={() => setNavOpen(!navOpen)}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className={`w-8 h-8 ${navOpen ? 'hidden' : 'block'}`}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
-
-        
-     
-        
-
-
-          </svg>
-
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={`w-8 h-8 ${navOpen ? 'block' : 'hidden'}`}>
-  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-</svg>
-
-        </button>
-      </div>
-
-      <div className={`${navOpen ? 'block' : 'hidden'} pt-6 px-2 text-center`} onClick={() => setNavOpen(!navOpen)}>
+        <div className={`${navOpen ? 'block' : 'hidden'} pt-6 px-2 text-center`} onClick={() => setNavOpen(!navOpen)}>
           <ul className="flex flex-col gap-3 text-lg font-pop font-semibold">
             <li>About</li>
             <li>Faq</li>
@@ -105,22 +120,22 @@ function Nav({setLoginModalOpen}) {
 
             <div className="button flex flex-col pt-2 gap-2 w-full">
 
-            <Link to="dashboard/user">
+              <Link to="dashboard/user">
 
-<button className="border border-primary text-primary text-lg font-pop font-semibold py-3 px-6 rounded-md cursor-pointer w-full">
-  Signin
-</button>
-</Link>
-          <Link to={"dashboard/user"}>
-            {" "}
-            <button className="bg-primary text-white text-lg font-ws py-3 px-6 rounded-md cursor-pointer w-full">
-              Signup
-            </button>
-          </Link>
-        
-        </div>
+                <button className="border border-primary text-primary text-lg font-pop font-semibold py-3 px-6 rounded-md cursor-pointer w-full">
+                  Signin
+                </button>
+              </Link>
+              <Link to={"dashboard/user"}>
+                {" "}
+                <button className="bg-primary text-white text-lg font-ws py-3 px-6 rounded-md cursor-pointer w-full">
+                  Signup
+                </button>
+              </Link>
+
+            </div>
           </ul>
-      </div>
+        </div>
       </div>
     </div>
   );
