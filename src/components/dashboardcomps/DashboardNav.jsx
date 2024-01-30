@@ -7,7 +7,7 @@ function DashboardNav() {
   return (
     <div className='w-full border-b sticky top-o z-20'>
       <div className='container mx-auto px-4 flex justify-between items-center py-4'>
-        <Link to='/dashboard/user' className="text-primary text-2xl font-ws font-semibold">Board</Link>
+        <Link to='/dashboard/user' className="text-primary text-2xl font-ws font-semibold hidden md:flex">Board</Link>
         <div className='flex gap-6 items-center font-mont'>
           {/* <h4>Dashboard</h4> */}
           <Link to='/dashboard/rants'>
