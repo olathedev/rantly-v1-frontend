@@ -25,10 +25,10 @@ function App() {
 
       <div className='min-h-screen'>
       <Routes>
-        <Route index path='/' element={
+        <Route index path='/' element={!user ? (
           <ModalContextProvider>
               <LandingPage />
-          </ModalContextProvider>
+          </ModalContextProvider>) : <Navigate to={"/dashboard/user"} />
         } />
         <Route path="/r/:username" element={<SendRant />} />  
         <Route path="/dashboard/*" element={user ? <Dashboard /> : <Navigate to="/" />} />  

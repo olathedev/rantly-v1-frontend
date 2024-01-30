@@ -21,7 +21,7 @@ function User() {
 
   return (
     <div className='my-10 container mx-auto px-8'>
-      <div className="text-2xl font-semibold font-rale text-gray-800"><span className="">Hi {user && user.username}, </span>Welcome to your rants Dashboard</div>
+      <div className="text-2xl font-semibold font-rale text-gray-800"><span className="">Hi {user && user.username}, </span>Welcome to your rants Board</div>
    
       <div className='mt-10 w-full md:max-w-[30%] flex items-center justify-center text-center md:justify-start'>
         <LinkAlert user = {user} />

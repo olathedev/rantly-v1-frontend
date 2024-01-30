@@ -35,7 +35,7 @@ function LandingPage() {
 
           <div className="w-full border-b border-gray-300 mt-8"></div>
 
-          <Footer />
+          {/* <Footer /> */}
         </div>
     </div>
     

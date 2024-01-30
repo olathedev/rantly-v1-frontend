@@ -59,16 +59,16 @@ function Nav({ setLoginModalOpen }) {
           {user && (
 
             <div className="flex items-center gap-3">
-
-              <button className="border border-primary text-primary text-lg font-pop font-semibold py-2 px-4 rounded-md cursor-pointer" onClick={logout}>
+              <Link to="/dashboard">
+                <button className="border text-white bg-secondary font-pop font-semibold py-3 px-3 rounded-md cursor-pointer">
+                  Rants Board
+                </button>
+              </Link>
+              <button className="bg-gray-200 font-pop font-semibold py-3  px-3 rounded-md cursor-pointer" onClick={logout}>
                 SignOut
               </button>
 
-            <Link to="/dashboard">
-              <button className="border text-white bg-slate-950 text-lg font-pop font-semibold py-2 px-4 rounded-md cursor-pointer">
-                Rants Board
-              </button>
-              </Link>
+
             </div>
           )}
 
