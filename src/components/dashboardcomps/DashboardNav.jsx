@@ -7,10 +7,24 @@ function DashboardNav() {
   return (
     <div className='w-full border-b sticky top-0 z-30 bg-white'>
       <div className='container mx-auto px-4 flex justify-between items-center py-4'>
-        <div className="navbrand">
-          <Link to='/dashboard/user' className="text-primary text-2xl font-ws font-semibold">Rantly-Board</Link>
+        <div className="navbrand flex items-center gap-3">
+        <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className={`w-8 h-8 md:hidden}`}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          <Link to='/dashboard/user' className="text-primary text-2xl font-ws font-semibold">Rantly</Link>
         </div>
-
+        
         <div className='flex items-center gap-10 font-pop'>
           <div>
             <Link to='/dashboard/rants'>
@@ -23,9 +37,7 @@ function DashboardNav() {
               <div>user</div>
             </div>
             <img className='h-12 w-12 rounded-full border-2 border-primary' src={userimg} alt="" />
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-primary font-bold">
-  <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-</svg>
+           
 
           </div>
         </div>
