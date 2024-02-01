@@ -67,7 +67,7 @@ export default function Register({ handleActiveForm }) {
 
                 <div className="foot py-3 text-center">
                     <button className="py-3 px-4 bg-secondary rounded-md w-full text-white font-semibold text-lg font-pop" disabled={isPending}>
-                    {isPending ? "loading..." : "Sign in"}
+                    {isPending ? "loading..." : "Sign up"}
                     </button>
 
                     <div className='font-mont text-md mt-2'>Already have an account?<span className='text-primary cursor-pointer font-semibold' onClick={() => handleActiveForm('login')}>Sign in</span> </div>
