@@ -16,13 +16,13 @@ function DashboardNav() {
           <Link to='/board' className="text-primary text-2xl font-ws font-semibold">Rantly</Link>
         </div>
         
-        <div className='flex items-center gap-10 font-pop'>
+        <div className='flex items-center gap-10 font-pop px-3'>
           <div className='flex gap-3 items-center'>
             <Link to='/board/rants'>
-              <button className='py-3 px-3 bg-gray-300 rounded text-slate-900 font-semibold font-pop hidden md:flex'>Messages</button>
+              <button className='py-3 px-3 bg-primary rounded text-white font-semibold font-pop'>Messages</button>
             </Link>
 
-              <button className='py-3 px-3 bg-primary rounded text-white font-semibold font-pop hidden md:flex' onClick={logout}>logout</button>
+              <button className='py-3 px-3 bg-gray-300 rounded text-secondary font-semibold font-pop' onClick={logout}>logout</button>
         
           </div>
           

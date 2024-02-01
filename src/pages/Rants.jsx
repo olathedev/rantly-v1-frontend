@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdAccessTime, MdShare } from "react-icons/md";
 import axios from 'axios'
 import { useAuthContext } from "../customhooks/useAuthContext";
+import DashboardNav from "../components/dashboardcomps/DashboardNav";
 
 function Rants() {
 
@@ -41,6 +42,9 @@ function Rants() {
 
 
   return (
+
+    <>
+      <DashboardNav />
     <div className="container mx-auto px-8 md:px-10 mt-8">
 
       {isPending && (
@@ -65,7 +69,7 @@ function Rants() {
         {messages && messages.map(message => (
 
         
-        <div className="message-box border-primary bg-primary bg-opacity-25 rounded-lg relative bottom-0">
+        <div className="message-box border-primary bg-primary bg-opacity-25 rounded-lg relative bottom-0" key={message._id}>
           <div className="header px-4 py-6 bg-[#040406] text-white flex justify-between rounded-t-lg">
             <h2 className="text-lg font-pop font-semibold">Rant</h2>
 
@@ -103,6 +107,8 @@ function Rants() {
         ))}
       </div>
     </div>
+
+    </>
   );
 }
 
