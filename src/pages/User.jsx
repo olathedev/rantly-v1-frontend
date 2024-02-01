@@ -3,6 +3,7 @@ import Nav from '../components/Nav'
 import LinkAlert from '../components/dashboardcomps/LinkAlert'
 import { useAuthContext } from '../customhooks/useAuthContext'
 import StatsCard from '../components/dashboardcomps/StatsCard'
+import DashboardNav from '../components/dashboardcomps/DashboardNav'
 
 function User() {
 
@@ -20,10 +21,15 @@ function User() {
   const {user} = useAuthContext()
 
   return (
+
+    
+<>
+<DashboardNav />
+
     <div className='my-10 container mx-auto px-8'>
       <div className="text-2xl font-semibold font-rale text-gray-800"><span className="">Hi {user && user.username}, </span>Welcome to your rants Board</div>
    
-      <div className='mt-10 w-full md:max-w-[30%] flex items-center justify-center text-center md:justify-start'>
+      <div className='mt-10 w-full md:max-w-[40%] text-center md:justify-start'>
         <LinkAlert user = {user} />
       </div>
 
@@ -38,6 +44,7 @@ function User() {
 
       </div>
     </div>
+    </>
   )
 }
 

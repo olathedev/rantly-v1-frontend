@@ -8,6 +8,8 @@ import SendRant from './pages/SendRant'
 import axios from 'axios'
 import { useAuthContext } from './customhooks/useAuthContext'
 import Footer from './components/Footer'
+import User from './pages/User'
+import Rants from './pages/Rants'
 
 
 
@@ -28,10 +30,11 @@ function App() {
         <Route index path='/' element={!user ? (
           <ModalContextProvider>
               <LandingPage />
-          </ModalContextProvider>) : <Navigate to={"/dashboard/user"} />
+          </ModalContextProvider>) : <Navigate to={"/board"} />
         } />
         <Route path="/r/:username" element={<SendRant />} />  
-        <Route path="/dashboard/*" element={user ? <Dashboard /> : <Navigate to="/" />} />  
+        <Route path="/board" element={user ? <User /> : <Navigate to="/" />} /> 
+        <Route path='/board/rants' element={user ? <Rants /> : <Navigate to="/" />} />
       </Routes>
       </div>
       <Footer />

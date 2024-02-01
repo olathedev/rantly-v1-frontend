@@ -120,19 +120,17 @@ function Nav({ setLoginModalOpen }) {
 
             <div className="button flex flex-col pt-2 gap-2 w-full">
 
-              <Link to="dashboard/user">
+            
 
-                <button className="border border-primary text-primary text-lg font-pop font-semibold py-3 px-6 rounded-md cursor-pointer w-full">
+                <button className="border border-primary text-primary text-lg font-pop font-semibold py-3 px-6 rounded-md cursor-pointer w-full"  onClick={() => setNavOpen(!navOpen)}>
                   Signin
                 </button>
-              </Link>
-              <Link to={"dashboard/user"}>
+      
                 {" "}
-                <button className="bg-primary text-white text-lg font-ws py-3 px-6 rounded-md cursor-pointer w-full">
+                <button className="bg-primary text-white text-lg font-ws py-3 px-6 rounded-md cursor-pointer w-full"  onClick={() => setNavOpen(!navOpen)}>
                   Signup
                 </button>
-              </Link>
-
+          
             </div>
           </ul>
         </div>
