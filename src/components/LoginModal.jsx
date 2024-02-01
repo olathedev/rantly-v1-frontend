@@ -13,13 +13,11 @@ export default function LoginModal({ onClose }) {
        
         setActiveForm(form)
     }
-    const handleClose = (e) => {
-        if (e.target.id === 'modalWrapper') onClose()
-    }
+   
 
 
     return (
-        <div className='fixed inset-0 flex justify-center items-center bg-black bg-opacity-25  backdrop-blur-sm overflow-auto z-20 ' id='modalWrapper' onClick={handleClose}>
+        <div className='fixed inset-0 flex justify-center items-center bg-black bg-opacity-25  backdrop-blur-sm overflow-auto z-20 ' id='modalWrapper' >
 
             <div className="border-t-4 border-primary w-full min-h-screen bg-white pt-20 md:py-4 px-6 md:w-[500px] flex flex-col rounded md:min-h-0">
 

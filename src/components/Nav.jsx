@@ -122,12 +122,12 @@ function Nav({ setLoginModalOpen }) {
 
             
 
-                <button className="border border-primary text-primary text-lg font-pop font-semibold py-3 px-6 rounded-md cursor-pointer w-full"  onClick={() => setNavOpen(!navOpen)}>
+                <button className="border border-primary text-primary text-lg font-pop font-semibold py-3 px-6 rounded-md cursor-pointer w-full"  onClick={() => setLoginModalOpen(true)}>
                   Signin
                 </button>
       
                 {" "}
-                <button className="bg-primary text-white text-lg font-ws py-3 px-6 rounded-md cursor-pointer w-full"  onClick={() => setNavOpen(!navOpen)}>
+                <button className="bg-primary text-white text-lg font-ws py-3 px-6 rounded-md cursor-pointer w-full"  onClick={() => setLoginModalOpen(true)}>
                   Signup
                 </button>
           
