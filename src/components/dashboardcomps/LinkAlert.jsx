@@ -55,7 +55,7 @@ function LinkAlert({ user }) {
         <div className="flex flex-col py-3 w-full">
           <h5 className='text-white my-2'>Share to </h5>
           <div className="py-2 px-3 flex gap-3 justify-center items-center">
-           <a href={`I've got an anonymous inbox open just for you! 🕵️‍♂️✉️ Click the link and share your thoughts, i wont know who sent it. ${url}`}><img src={social1} className='h-10' alt="" srcset="" /></a>
+           <a href={`whatsapp://send?text=I've got an anonymous inbox open just for you! 🕵️‍♂️✉️ Click the link and share your thoughts, i wont know who sent it. ${url}`}><img src={social1} className='h-10' alt="" srcset="" /></a>
            <img src={social} className='h-10' alt="" srcset="" onClick={shareOnFacebook} />
             <img src={social2} className='h-10' alt="" srcset="" />
 
