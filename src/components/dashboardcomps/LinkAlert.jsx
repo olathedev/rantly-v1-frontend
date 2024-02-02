@@ -10,7 +10,7 @@ function LinkAlert({ user }) {
 
   const [copied, setCopied] = useState(false)
 
-  const url = `rantly.vercel.app/r/${user.username}
+  const url = `https://rantly.vercel.app/r/${user.username}
 `
   const copyToClipBoard = async (text) => {
     await navigator.clipboard.writeText(text)
@@ -19,7 +19,10 @@ function LinkAlert({ user }) {
       setCopied(false)
     }, 5000);
   }
-
+  const shareOnFacebook = () => {
+    const message = "I've got an anonymous inbox open just for you! 🕵️‍♂️✉️ Click the link and share your thoughts, i wont know who sent it"
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(message), 'Share on Faceb ook', 'width=600,height=400');
+  }
   return (
     <div>
       <div className="alert bg-black rounded-lg py-6 px-4 md:px-8 font-rale w-full">
@@ -52,8 +55,8 @@ function LinkAlert({ user }) {
         <div className="flex flex-col py-3 w-full">
           <h5 className='text-white my-2'>Share to </h5>
           <div className="py-2 px-3 flex gap-3 justify-center items-center">
-           <a href={`whatsapp://send?text=🎉 Send me anything you've been itching to say without revealing your identity. Click the link and share your thoughts ${url}, i wont know who sent it`}><img src={social} className='h-10' alt="" srcset="" /></a>
-            <img src={social1} className='h-10' alt="" srcset="" />
+           <a href={`I've got an anonymous inbox open just for you! 🕵️‍♂️✉️ Click the link and share your thoughts, i wont know who sent it. ${url}`}><img src={social1} className='h-10' alt="" srcset="" /></a>
+           <img src={social} className='h-10' alt="" srcset="" onClick={shareOnFacebook} />
             <img src={social2} className='h-10' alt="" srcset="" />
 
           </div>
