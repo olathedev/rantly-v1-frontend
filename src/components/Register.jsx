@@ -10,9 +10,11 @@ export default function Register({ handleActiveForm }) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     
-    const {register, isPending, success} = useLoginRegister()
+    const {register, isPending, success, error} = useLoginRegister()
 
     const handleRegister = async (e) => {
+
+
         e.preventDefault()
         await register(firstname, lastname, username, password)
 
@@ -22,6 +24,10 @@ export default function Register({ handleActiveForm }) {
 
     return (
         <div>
+
+           {error && (
+             <div className='p-2 mb-4 bg-red-700 font-pop text-center bg-opacity-20 border border-red-700 rounded'>{error}</div>
+           )}
             <form onSubmit={handleRegister} className={`${!success ? 'flex': 'hidden'} flex-col gap-3`}>
                 <div className="email flex flex-col gap-1 text-md font-mont">
                     <label htmlFor="username" className=''>Firstname</label>

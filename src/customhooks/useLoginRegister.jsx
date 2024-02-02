@@ -7,10 +7,18 @@ import { ModalContext } from '../context/ModalContext'
 export default function useLoginRegister() {
     const [isPending, setIsPending] = useState(false)
     const [success, setSuccess] = useState(false)
+    const [error, setError] = useState(null)
+
 
     // const {loginModalOpen, setLoginModalOpen} = useContext(ModalContext)
 
     const register = async (firstname, lastname, username, password) => {
+            setError(null)
+            if(!firstname || !lastname || !username || !password) {
+                setError("Fill out All fields")
+                return
+            }
+
             setIsPending(true)
             try {
                 const response = await axios.post('auth/register', {
@@ -20,12 +28,13 @@ export default function useLoginRegister() {
                 setSuccess(true)
                 console.log(response.data, response.status);
             } catch (error) {
+                setError(error.response.data.msg)
                 setIsPending(false)
-                console.log(error);
+                console.log(error.response);
             }
     }
 
   
 
-    return {register, isPending, success}
+    return {register, isPending, success, error}
 }

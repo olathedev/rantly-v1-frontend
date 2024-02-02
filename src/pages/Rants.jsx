@@ -119,9 +119,6 @@ function Rants() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
        
           {messages && messages.map(message => (
-
-              
-
             <div ref={cardRef} className="message-box border-primary bg-primary bg-opacity-25 rounded-lg relative bottom-0" key={message._id}>
               <div className="header px-4 py-3 bg-primary text-white flex justify-between rounded-t-lg">
 

@@ -102,8 +102,8 @@ function SendRant() {
                   onChange={handleWordCount}
                  
                 >
-                  {" "}
-                  Start Ranting..{" "}
+                
+                  Start Ranting..
                 </textarea>
                 <p className="text-red-600 text-md font-semibold font-mont">
                   {formError}
