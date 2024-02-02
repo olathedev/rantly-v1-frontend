@@ -88,7 +88,7 @@ function Rants() {
   return (
     <>
       <DashboardNav />
-      <div className="container mx-auto px-8 md:px-10 mt-8 ">
+      <div className="container mx-auto px-8 md:px-10 my-8 ">
 
         <div className="header my-10 flex gap-4 cursor-default font-semibold">
           <div className="bg-primary rounded text-black py-3 bg-opacity-30  px-6 cursor-pointer font-pop">All</div>
@@ -131,7 +131,7 @@ function Rants() {
                 </div>
               
                 <div className="flex gap-2">
-                <div className="">
+                <div className="" onClick={handleDownload}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                 </svg>
