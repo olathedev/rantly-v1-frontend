@@ -82,7 +82,7 @@ function SendRant() {
       <div className="mt-20 container mx-auto flex justify-center items-center px-6">
         {user && (
           <div>
-            <h3 className="text-3xl font-pop font-semibold text-primary my-2  md:text-center">
+            <h3 className="text-3xl font-rale font-semibold text-primary my-2  md:text-center">
               You're about to rant at {username}.{" "}
             </h3>
             <p className="text-lg mt-4 font-rale md:text-center">
