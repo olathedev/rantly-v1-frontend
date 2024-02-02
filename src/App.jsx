@@ -22,11 +22,8 @@ function App() {
 
   const {user} = useAuthContext()
 
- 
-
   return (
     <div className=''>
-
       <Metas />
 
       <div className='min-h-screen'>

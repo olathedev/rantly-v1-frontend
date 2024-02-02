@@ -7,7 +7,7 @@ export default function Metas() {
         <Helmet>
             <meta property='og:title'  content='Rantly' />
             <meta property='og:description'  content='Recieve, Send and share anonymous messages with friends' />
-            <meta property='og:url'  content='rantly.vercel.app' />
+            <meta property='og:url'  content='https://rantly.vercel.app/' />
             <meta property='og:type'  content='website' />
 
         </Helmet>
