@@ -1,17 +1,14 @@
-import { useEffect, useState } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
-import Nav from './components/Nav'
 import { ModalContextProvider } from './context/ModalContext'
-import Dashboard from './layouts/Dashboard'
 import SendRant from './pages/SendRant'
 import axios from 'axios'
 import { useAuthContext } from './customhooks/useAuthContext'
 import Footer from './components/Footer'
 import User from './pages/User'
 import Rants from './pages/Rants'
-import { useMessageContext } from './customhooks/useMessageContext'
-import { useFetch } from './customhooks/useFetch'
+import NotFound from './pages/NotFound'
+// import DashboardNav from './components/dashboardcomps/DashboardNav'
 
 
 
@@ -27,7 +24,7 @@ function App() {
  
 
   return (
-    <div>
+    <div className=''>
 
       <div className='min-h-screen'>
       <Routes>
@@ -39,6 +36,7 @@ function App() {
         <Route path="/r/:username" element={<SendRant />} />  
         <Route path="/board" element={user ? <User /> : <Navigate to="/" />} /> 
         <Route path='/board/rants' element={user ? <Rants /> : <Navigate to="/" />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       </div>
       <Footer />

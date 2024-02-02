@@ -4,6 +4,7 @@ import axios from 'axios'
 import html2canvas from 'html2canvas'
 import { useAuthContext } from "../customhooks/useAuthContext";
 import DashboardNav from "../components/dashboardcomps/DashboardNav";
+import {formatDistanceToNow} from "date-fns"
 
 function Rants() {
 
@@ -27,8 +28,8 @@ function Rants() {
         setIsPending(false)
         setMessages(data.messages)
       } catch (error) {
-        console.log(error.response)
-        setError("An error occured")
+        console.log(error)
+        setError(error.message)
         setIsPending(false)
 
       }
@@ -90,8 +91,8 @@ function Rants() {
       <div className="container mx-auto px-8 md:px-10 mt-8 ">
 
         <div className="header my-10 flex gap-4 cursor-default font-semibold">
-          <div className="bg-primary rounded-full text-white py-3 px-6     font-pop">All</div>
-          <div className="border border-primary rounded-full py-3 px-4 font-pop">Bookmarked</div>
+          <div className="bg-primary rounded text-black py-3 bg-opacity-30  px-6 cursor-pointer font-pop">All</div>
+          <div className="rounded-full py-3 px-4 cursor-pointer font-pop">Bookmarked</div>
         </div>
 
         {isPending && (
@@ -103,41 +104,42 @@ function Rants() {
         {error && (
           <div className="flex h-screen justify-center items-center text-white">
 
-            <div className="py-6 px-20 bg-red-500 text-center font-mont text-lg rounded-md">
-              <div className="border-b py-2 ">
-                Something went wrong
+            <div className="-mt-60 py-6 px-20 bg-red-500 text-center font-mont text-lg rounded-md">
+              <div className="py-4">
+                {error}
               </div>
-              {error}
             </div>
           </div>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
 
           {messages && messages.map(message => (
 
 
             <div ref={cardRef} className="message-box border-primary bg-primary bg-opacity-25 rounded-lg relative bottom-0" key={message._id}>
-              <div className="header px-4 py-6 bg-[#040406] text-white flex justify-between rounded-t-lg">
-                <h2 className="text-lg font-pop font-semibold">Rant</h2 >
+              <div className="header px-4 py-3 bg-primary text-white flex justify-between rounded-t-lg">
 
+                <div className="flex flex-col">
+                  <h2 className="text-lg font-pop font-semibold">Rant</h2 >
+                  <p className="font-pop text-sm">{formatDistanceToNow(new Date(message.createdAt), {addSuffix: true})}</p>
+                </div>
+              
                 <div className="flex gap-2">
-                <div className="py-1 px-1 bg-white rounded-full border border-primary text-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
-                  </svg>
+                <div className="">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
 
                 </div>
 
-                <div className="py-1 px-1 bg-white rounded-full border border-primary text-primary cursor-pointer" onClick={handleDownload}>
+                {/* <div className="py-1 px-1 bg-white rounded-full border border-primary text-primary cursor-pointer" onClick={handleDownload}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                 </svg>
 
 
+                </div> */}
                 </div>
-                </div>
-               
-
 
               </div>
               <div className="body px-4 py-8 text-xl font-rale text-[#040406]">
