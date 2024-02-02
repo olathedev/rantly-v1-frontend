@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import User from './pages/User'
 import Rants from './pages/Rants'
 import NotFound from './pages/NotFound'
+import Metas from './Metas'
 // import DashboardNav from './components/dashboardcomps/DashboardNav'
 
 
@@ -25,6 +26,8 @@ function App() {
 
   return (
     <div className=''>
+
+      <Metas />
 
       <div className='min-h-screen'>
       <Routes>
