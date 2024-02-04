@@ -6,10 +6,17 @@ import { ModalContext } from '../context/ModalContext'
 export const useLogin = () => {
 
     const [isPending, setIsPending] = useState(false)
+    const [error, setError] = useState(false)
     const {loginModalOpen, setLoginModalOpen} = useContext(ModalContext)
     const {dispatch} = useAuthContext()
 
     const login = async (username, password) => {
+
+        if(!username || !password) {
+            setError("Fill out All fields")
+            return
+        }
+
         setIsPending(true)
         try {
             const {data} = await axios.post('auth/login', {
@@ -24,10 +31,11 @@ export const useLogin = () => {
 
         } catch (error) {
             setIsPending(false)
-           console.log(error.response);
+            console.log(error.response.data.msg);
+            setError(error.response.data.msg)
         }
     }
 
-    return {login, isPending}
+    return {login, isPending, error}
 }
 

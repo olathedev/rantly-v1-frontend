@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useLogin } from '../customhooks/useLogin'
 
-export default function({handleActiveForm}) {
+export default function ({ handleActiveForm }) {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const {login, isPending} = useLogin()
+    const { login, isPending, error } = useLogin()
     const [passwordVisibility, setPasswordVisibility] = useState(false)
 
     const handleSubmit = (e) => {
@@ -15,7 +15,12 @@ export default function({handleActiveForm}) {
     }
 
     return (
+
         <div>
+
+            {error && (
+                <div className='p-2 mb-4 bg-red-700 font-pop text-center bg-opacity-20 border border-red-700 rounded'>{error}</div>
+            )}
             <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
                 <div className="email flex flex-col gap-1 text-md font-pop">
                     <label htmlFor="username" className=''>Username</label>
@@ -54,8 +59,8 @@ export default function({handleActiveForm}) {
 
                 <div className="foot py-3 text-center">
                     <button className="py-3 px-4 bg-secondary rounded-md w-full text-white font-semibold text-lg font-pop">
-                       {!isPending ? 'Sign in' : 'loading..'}
-                        </button>
+                        {!isPending ? 'Sign in' : 'loading..'}
+                    </button>
 
                     <div className='font-mont text-md mt-2'>Dont have an account?<span className='text-primary cursor-pointer font-semibold' onClick={() => handleActiveForm('register')}>Create one</span> </div>
                 </div>
