@@ -5,12 +5,19 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthContextProvider } from './context/AuthContext.jsx'
 import { MessagesContextProvider } from './context/MessagesContext.jsx'
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
+
     <AuthContextProvider>
-      <MessagesContextProvider>
+    <MessagesContextProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>

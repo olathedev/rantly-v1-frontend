@@ -9,14 +9,22 @@ import User from './pages/User'
 import Rants from './pages/Rants'
 import NotFound from './pages/NotFound'
 import Metas from './Metas'
+import { MessagesContextProvider } from './context/MessagesContext'
 // import DashboardNav from './components/dashboardcomps/DashboardNav'
 
 
 
-axios.defaults.baseURL = 'https://rantly-v1-api.cyclic.app/api/v1/'
-// axios.defaults.baseURL = 'http://localhost:4000/api/v1'
+// axios.defaults.baseURL = 'https://rantly-v1-api.cyclic.app/api/v1/'
+axios.defaults.baseURL = 'http://localhost:4000/api/v1'
 
+// custom axios instance
 
+// const makeAuthorisedRequest = axios.create({
+//   baseURL: "https://rantly-v1-api.cyclic.app/api/v1/jobs",
+//   headers: {
+//     Authorization: ''
+//   }
+// })
 
 function App() {
 
@@ -27,6 +35,7 @@ function App() {
       <Metas />
 
       <div className='min-h-screen'>
+      
       <Routes>
         <Route index path='/' element={!user ? (
           <ModalContextProvider>
@@ -38,6 +47,7 @@ function App() {
         <Route path='/board/rants' element={user ? <Rants /> : <Navigate to="/" />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
+    
       </div>
       <Footer />
     </div>

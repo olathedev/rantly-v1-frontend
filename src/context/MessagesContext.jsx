@@ -20,11 +20,15 @@ export const messagesReducer = (state, action) => {
 }
 
 export const MessagesContextProvider = ({children}) => {
+    const {user} = useAuthContext()
+    console.log();
 
     const [state, dispatch] = useReducer(messagesReducer, {
         messages: null,
         bookmarked: null
     })
+
+   
 
     console.log('messageState', state)
 

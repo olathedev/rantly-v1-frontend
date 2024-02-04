@@ -5,6 +5,7 @@ export default function Metas() {
     return (
         <div>
             <Helmet>
+                
                 <meta property="og:title" content="Rantly" />
                 <meta property="og:site_name" content="Rantly" />
                 <meta property="og:url" content="https://rantly.vercel.app/" />
