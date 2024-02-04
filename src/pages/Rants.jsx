@@ -74,17 +74,18 @@ function Rants() {
     });
   }
 
+  const [activeTab, setActiveTab] = useState(1)
+
+  const active = 'bg-primary'
   return (
     <>
       <DashboardNav />
       <div className="container mx-auto px-8 md:px-10 my-8 ">
 
         <div className="header my-10 flex gap-4 cursor-default font-semibold">
-          <div className="bg-primary rounded text-black py-3 bg-opacity-30  px-6 cursor-pointer font-pop">All</div>
-          <div className="rounded-full py-3 px-4 cursor-pointer font-pop">Bookmarked</div>
+          <div className={`${activeTab === 1 && active} rounded py-3 bg-opacity-30  px-6 cursor-pointer font-pop`} onClick={() => setActiveTab(1)}>All</div>
+          <div className={`${activeTab === 2 && active} rounded py-3 bg-opacity-30 px-4 cursor-pointer font-pop`} onClick={() => setActiveTab(2)}>Bookmarked</div>
         </div>
-
-        
         {messages && messages.length <= 0 && (
           <div className="flex justify-center items-center mt-20">
             <div className="text-xl font-mont">You have No messages</div>
@@ -134,6 +135,9 @@ function Rants() {
             </div>
 
           ))}
+
+
+
         </div>
       </div>
 
