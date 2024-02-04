@@ -14,8 +14,8 @@ import { MessagesContextProvider } from './context/MessagesContext'
 
 
 
-// axios.defaults.baseURL = 'https://rantly-v1-api.cyclic.app/api/v1/'
-axios.defaults.baseURL = 'http://localhost:4000/api/v1'
+axios.defaults.baseURL = 'https://rantly-v1-api.cyclic.app/api/v1/'
+// axios.defaults.baseURL = 'http://localhost:4000/api/v1'/
 
 // custom axios instance
 
